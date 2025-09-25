@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solo Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #ddd;
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      background: #111;
+    }
+
+    .logo {
+      font-size: 70px;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ddd;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+    /* Hero Section */
+    .hero {
+      text-align: left;
+      padding: 100px 150px;
+      max-width: 800px;
+    }
+
+    .hero img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      color: white;
+      margin: 10px 0;
+      white-space: normal;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #aaa;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    /* Offer Section */
+    .offer-section {
+      margin: 60px auto;
+      padding: 40px;
+      max-width: 1150px;
+      background: hsl(0, 0%, 9%);
+      border-radius: 12px;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      margin: 150px;
+      padding: 20px 26px;
+      border: 2px solid #555;
+      border-radius: 25px;
+      background: transparent;
+      color: #ddd;
+      font-size: 26px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+
+    .contact-btn:hover {
+      background: #222;
+      color: white;
+    }
+
+    .offer-section h2 {
+      font-size: 60px;
+      color: white;
+      margin-bottom: 40px;
+      white-space: normal;
+      text-align: center;
+    }
+
+    .offer-section p {
+      font-size: 20px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Container */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      gap: 20px;
+      max-width: 1220px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+
+    /* Service Card */
+    .service-box {
+      background: #181818;
+      border-radius: 12px;
+      padding: 40px 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Icon */
+    .service-box .icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    /* Heading */
+    .service-box h3 {
+      font-size: 20px;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    /* Paragraph */
+    .service-box p {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #aaa;
+    }
+
+    .container1 {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    /* Left Column */
+    .posts {
+      flex: 2;
+    }
+
+    .posts h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .post {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    .post small {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .post h3 {
+      margin: 10px 0;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .post p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #bbb;
+    }
+
+    /* Right Column */
+    .container2 {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+      height: auto;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sidebar {
+      flex: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin: 10px 0;
+      padding-top: 20px;
+      padding-bottom: 30px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #aaa;
+      padding-bottom: 50px;
+    }
+
+    .card button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: 1px solid #555;
+      background: transparent;
+      color: #eee;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .card button:hover {
+      background: #333;
+    }
+
+    /* Sidebar */
+    .sidebar1 {
+      flex: 1;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #2a2a2a;
+    }
+
+    .sidebar h3 {
+      color: #fff;
+      margin-top: 0;
+    }
+
+    .sidebar p {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .sidebar form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar input[type="email"] {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+
+    .sidebar button {
+      padding: 10px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .sidebar button:hover {
+      background-color: #555;
+    }
+
+    .sidebar small {
+      display: block;
+      margin-top: 15px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .newsletter-card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 24px;
+      width: 350px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      align-items: right;
+    }
+
+    .newsletter-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .newsletter-card h3::before {
+      content: "✉️";
+      margin-right: 8px;
+    }
+
+    .newsletter-card p {
+      font-size: 14px;
+      color: #bbb;
+      margin-bottom: 15px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 6px;
+      background: #111;
+      color: #fff;
+      outline: none;
+    }
+
+    .newsletter-form button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      background: #333;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .newsletter-form button:hover {
+      background: #555;
+    }
+
+    .newsletter-card small {
+      display: block;
+      font-size: 12px;
+      color: #777;
+      margin-top: 12px;
+    }
+
+    .view-all {
+      padding: 15px 30px;
+      background-color: #444;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 20px;
+      margin-top: 60px;
+    }
+
+    .view-all:hover {
+      background-color: #555;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+      margin-top: 110px;
+      color: #777;
+      border-top: 1px solid #333;
+      padding: 15px 20px;
+      flex-wrap: wrap;
+    }
+
+   .footer-right a {
+      color: #777;
+      text-decoration: none;
+      margin-right: 15px;
+      font-size: 20px;
+    }
+
+    .footer-right a:hover {
+      color: #aaa;
+    }
+    .footer-left {
+      font-size: 14px;
+    }
+
+   /* === Responsive Navbar with Toggle (pure CSS) === */
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Collapse nav for small screens */
+@media (max-width: 874px) {
+  nav {
+    display: none;
+    width: 100%;
+    background: #111;
+    border-top: 1px solid #333;
+    padding: 20px 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .menu-toggle:checked ~ nav {
+    display: block;
+  }
+}
+
+/* === Mobile Responsiveness (iPhone 12 Pro 390px) === */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 40px;
+  }
+
+  .hero {
+    padding: 40px 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .contact-btn {
+    font-size: 18px;
+    padding: 10px 16px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .offer-section {
+    padding: 40px 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .offer-section h2 {
+    font-size: 28px;
+  }
+  .offer-section p {
+    font-size: 16px;
+  }
+  .services {
+    grid-template-columns: 1fr;
+  }
+
+  .container1, .container2 {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .posts, .sidebar {
+    flex: 1;
+    width: 100%;
+  }
+
+  .newsletter-card {
+    width: 100%;
+  }
+}
+  /* === Fix merging of sidebar cards and footer on mobile === */
+@media (max-width: 600px) {
+  .sidebar1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* space between cards */
+    width: 100%;
+  }
+
+  .card,
+  .newsletter-card {
+    width: 100%;
+    margin: 0 auto 20px auto; /* space below each card */
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .card h3,
+  .newsletter-card h3 {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .newsletter-card input[type="email"],
+  .newsletter-card button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  /* Footer spacing fix */
+  footer {
+    margin-top: 40px;  /* push footer down */
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    gap: 10px;
+    flex-direction: column;
+  }
+  .footer-left a {
+    margin: 0 10px;
+  }
+}
+/* === Final Mobile Fix for Sidebar + Footer Merging === */
+@media (max-width: 600px) {
+  .container1,
+  .container2 {
+    flex-direction: column; /* stack posts and sidebar */
+    height: auto; /* remove fixed height issue */
+    gap: 20px;
+  }
+
+  .posts {
+    width: 100%;
+  }
+
+  .sidebar1 {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .card,
+  .newsletter-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  /* Footer fix */
+  footer {
+    position: relative; /* ensures it flows below */
+    clear: both;
+    margin-top: 30px;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 12px;
+    background: #111; /* makes it visible & separate */
+  }
+}
+
+
+  </style>
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">solo</div>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+<label for="menu-toggle" class="menu-icon">☰</label>
+    <nav>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <img
+      src="https://www.shutterstock.com/shutterstock/photos/1836020740/display_1500/stock-photo-profile-picture-of-smiling-millennial-asian-girl-isolated-on-grey-wall-background-look-at-camera-1836020740.jpg"
+      alt="Profile Photo">
+    <h1>Hi I’m a fashion designer</h1>
+    <p>A fashion designer is a professional who creates clothing, accessories, and footwear by combining artistic vision
+      with practical design skills. Their work involves sketching ideas, selecting fabrics, colors, and patterns, and
+      overseeing the production of garments.</p>
+  </section>
+  <!-- Get in touch Button -->
+  <button class="contact-btn">Get in touch 💬</button>
+
+  <!-- Offer Section -->
+  <section class="offer-section">
+    <h2>The Future of Fashion Industry</h2>
+    <p>It's lies in sustainability, digital innovation, and personalization. With eco-friendly practices, virtual
+      fashion shows, and AI-driven trends, the industry is moving toward a more ethical and tech-powered future.</p>
+  </section>
+  <!-- Services Section -->
+  <section class="services">
+    <div class="service-box">
+      <div class="icon">💡</div>
+      <h3>Ideation and Prototyping</h3>
+      <p>Idea generation and prototyping are two of the most important aspects of product development.</p>
+    </div>
+
+    <div class="service-box">
+      <div class="icon">🚀</div>
+      <h3>Headless Web Development</h3>
+      <p>Headless architecture can improve performance since the frontend is optimized to render content efficiently.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <div class="icon">🛠️</div>
+      <h3>Redesigning Products</h3>
+      <p>Sometimes you don’t need to start everything from scratch. Redesigning existing apps can be cost effective.</p>
+    </div>
+    <div class="service-box">
+      <div class="icon">🤝</div>
+      <h3>Coach teams</h3>
+      <p>I can coach teams of small and medium size. Topics I can coach on are frontend development and UI design.</p>
+    </div>
+
+    <div class="service-box">
+      <div class="icon">👥</div>
+      <h3>Team Building</h3>
+      <p>Team building is crucial for any enterprise, regardless of the size. I can help in building a team of suitable
+        professionals.</p>
+    </div>
+    <div class="service-box">
+      <h3>Global Connectivity</h3>
+      <p>Connects people across countries through trends, fashion weeks, and international collaborations.</p>
+    </div>
+  </section>
+  <div class="container1">
+    <!-- Left side (Recent Posts) -->
+    <div class="posts">
+      <h2>Recent Posts</h2>
+
+      <div class="post">
+        <small>Jul 10 • 5 min read • Design</small>
+        <h3>Design Systems: Streamlining Collaboration Between Developers and Designers</h3>
+        <p>A well-structured design system is a game-changer for teams working on frontend development and UI design.
+          This article explores how design systems enhance collaboration, promote consistency, and expedite the
+          design-to-development process.</p>
+      </div>
+
+      <div class="post">
+        <small>Jul 10 • 5 min read • Design</small>
+        <h3>The Role of Animation in Modern User Interfaces: Enhancing Interactivity and Engagement</h3>
+        <p>Animations in UI design play a vital role in creating engaging user experiences. This article discusses how
+          animations improve usability, guide user focus, and bring interfaces to life.</p>
+      </div>
+      <div class="post">
+        <small>Jul 10 • 5 min read • Design</small>
+        <h3>Design Systems: Streamlining Collaboration Between Developers and Designers</h3>
+        <p>A well-structured design system is a game-changer for teams working on frontend development and UI design.
+          This article explores how design systems enhance collaboration, promote consistency, and expedite the
+          design-to-development process.</p>
+      </div>
+      <div class="post">
+        <small>Jul 10 • 5 min read • Design</small>
+        <h3>The Role of Animation in Modern User Interfaces: Enhancing Interactivity and Engagement</h3>
+        <p>Animations in UI design play a vital role in creating engaging user experiences. This article discusses how
+          animations improve usability, guide user focus, and bring interfaces to life.</p>
+      </div>
+      <div class="container">
+        <div class="article">
+          <div class="meta">
+            <span>Jul 10 • 5 min read •</span>
+            <span class="tag">Design</span>
+          </div>
+          <h2>Design Systems: Streamlining Collaboration Between Developers and Designers</h2>
+          <p>A well-structured design system is a game-changer for teams working on frontend development and UI design.
+            This article explores how design systems enhance collaboration, promote consistency, and expedite the
+            design-to-development process.</p>
+          <a href="#" class="view-all">View All</a>
+        </div>
+      </div>
+    </div>
+    <div class="container2">
+      <!-- Right side (Sidebar Cards) -->
+      <div class="sidebar">
+        <div class="card">
+          <div style="font-size: 100px;">💡</div>
+          <h3>Have Something Cool in Mind?</h3>
+          <p>This can be start of something great!!!</p>
+          <button>Let’s Talk 💬</button>
+        </div>
+        <div class="newsletter-card">
+          <h3>Subscribe to my newsletter</h3>
+          <p>Get important news and articles delivered directly to your inbox.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+          <small>You can unsubscribe at any time using the link in our emails. For more details, review our privacy
+            policy.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+       <!--left side: copyright-->
+     <div class="footer-left">
+    <p>© 2023 All rights reserved. Theme by <a href="#">bitb.dev</a></p>
+    </div>
+    <!-- right side: social media -->
+     <div class="footer-right">
+      <a href="#" aria-label="Facebook">🌐</a>
+      <a href="#" aria-lable="Twitter">🐦</a>
+      <a href="#" aria-lable="Instagram">📸</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+     </div>
+  </footer>
+</body>
+</html>
